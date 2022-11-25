@@ -1,0 +1,38 @@
+[
+    {
+      "response_type": "Admission ",
+      "user_input": ["where", "to", "go" ,"for", "admission","is" ,"block","how" ,"find","is" ],
+      "bot_response": "Left!",
+      "required_words": ["admission"]
+    },
+    {
+      "response_type": "VC",
+      "user_input": ["where", "to", "meet", "vc", "vice-cancellor","where","is","building"],
+      "bot_response": "Straight",
+      "required_words": ["vc"]
+    },
+    {
+      "response_type": "greeting",
+      "user_input": ["nice", "to", "meet", "you"],
+      "bot_response": "The pleasure is all mine!",
+      "required_words": ["nice", "meet", "you"]
+    },
+    {
+      "response_type": "administration",
+      "user_input": ["how", "to","find", "administration", "block", "department", "where","is"],
+      "bot_response": "Start by walking.",
+      "required_words": ["administration"]
+    },
+    {
+      "response_type": "computer",
+      "user_input": ["computer", "how","where","is", "to", "find", "dapartment","block"],
+      "bot_response": "Great bro.",
+      "required_words": ["computer","department"]
+    },
+    {
+      "response_type": "library",
+      "user_input": ["library","where","is", "how", "to", "find","building"],
+      "bot_response": "Study.",
+      "required_words": ["library"]
+    }
+  ]
