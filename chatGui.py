@@ -8,12 +8,17 @@ import tkinter as tk
 import pyttsx3
 import random_responses as random_res
 from PIL import Image, ImageTk
+import sqlite3
+
 
 def load_json(file):
     with open(file) as bot_responses:
         print(f"Loaded '{file}' successfully !")
         return json.load(bot_responses)
+
+
 response_data = load_json("bot.json")
+
 
 def get_response(input_string):
     split_message = re.split(r'\s+|[,;?!.-]\s*', input_string.lower())
@@ -47,6 +52,7 @@ def get_response(input_string):
 
     # Find the best response and return it if they're not all 0
     best_response = max(score_list)
+    global response_index
     response_index = score_list.index(best_response)
 
     # Check if input is empty
@@ -58,6 +64,7 @@ def get_response(input_string):
         return response_data[response_index]["bot_response"]
     return random_res.random_string()
 
+
 def textToSpeech(text):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
@@ -65,6 +72,7 @@ def textToSpeech(text):
     engine.setProperty('rate', 150)
     engine.say(text)
     engine.runAndWait()
+
 
 def botReply():
     global question
@@ -83,7 +91,9 @@ def botReply():
     #pyttsx3.speak("Hello,My name is Gautam")
     questionField.delete(0, END)
 
+
 root = tk.Tk()
+
 
 def img_bg1():
     # print(question)
@@ -154,6 +164,7 @@ def img_bg1():
         new_image.save('Playground.png')
         img = PhotoImage(file="Playground.png")
 
+
 def newwindow():
     newWindow = Toplevel(root)
     newWindow.title("Maps of Departments")
@@ -164,9 +175,73 @@ def newwindow():
     canvas1.create_image(0, 0, image=img, anchor="nw")  # Display image
     print(question)
 
+
 root.geometry('500x570+100+30')
-root.title('SAMARPAN CHATBOT')
+root.title('YMCA ROBO')
 root.config(bg='brown')
+
+# Create databse
+conn = sqlite3.connect('history.db')
+
+# create cursor
+c = conn.cursor()
+
+# create table
+# c.execute(""" CREATE TABLE ALL_SEARCHES (
+#     category text,
+#     question text
+#     ) """)
+
+# inserting values to database
+
+
+def submit():
+    # Create databse
+    conn = sqlite3.connect('history.db')
+
+    # create cursor
+    c = conn.cursor()
+    c.execute("INSERT INTO ALL_SEARCHES VALUES (:category,:question )",
+              {'category': response_data[response_index]["response_type"],
+               'question': question
+               })
+    # Commit changes
+    conn.commit()
+
+    # Close connection
+    conn.close()
+
+
+def show():
+    # Create databse
+    conn = sqlite3.connect('history.db')
+
+    # create cursor
+    c = conn.cursor()
+
+    c.execute("SELECT *,oid FROM ALL_SEARCHES")
+    records = c.fetchall()
+    print(records)
+
+    # Loop through records
+    print_records = ''
+    for record in records:
+        print_records += str(record[0]) + '\n'
+
+    query_label = Label(root, text=print_records)
+    query_label.pack()
+    # Commit changes
+    conn.commit()
+
+    # Close connection
+    conn.close()
+
+
+# Commit changes
+conn.commit()
+
+# Close connection
+conn.close()
 
 image_logo = Image.open('logo.png')
 resize_image = image_logo.resize((120, 100))
@@ -186,15 +261,18 @@ textarea = Text(centerFrame, font=('times new roman', 20, 'bold'),
 textarea.pack(side=LEFT)
 scrollbar.config(command=textarea.yview)
 
-def clear(event):
-   questionField.configure(state=NORMAL)
-   questionField.delete(0, END)
-   questionField.unbind('<Button-1>', clicked)
 
-prewrite=StringVar()
-questionField = Entry(root,textvariable=prewrite, font=('verdana', 20, 'bold'))
-questionField.insert(0,'Ask your question here .')
-questionField.pack(fill='x', expand=True, padx= 45, pady=10)
+def clear(event):
+    questionField.configure(state=NORMAL)
+    questionField.delete(0, END)
+    questionField.unbind('<Button-1>', clicked)
+
+
+prewrite = StringVar()
+questionField = Entry(root, textvariable=prewrite,
+                      font=('verdana', 20, 'bold'))
+questionField.insert(0, 'Ask your question here .')
+questionField.pack(fill='x', expand=True, padx=45, pady=10)
 clicked = questionField.bind('<Button-1>', clear)
 textarea.config()
 
@@ -207,8 +285,16 @@ askButton.pack(side=LEFT)
 direction = Button(button_frame, text='Locate on map', command=newwindow)
 direction.pack(side=RIGHT)
 
+submit_btn = Button(root, text="Add to Records", command=submit)
+submit_btn.pack()
+
+""" show_btn=Button(root,text="Add to Records",command=show)
+show_btn.pack() """
+
+
 def click(event):
     askButton.invoke()
+
 
 root.bind('<Return>', click)
 root.mainloop()
