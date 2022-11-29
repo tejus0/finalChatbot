@@ -1,0 +1,121 @@
+[{
+      "response_type": "boys hostel ",
+      "user_input": ["where", "to", "go" ,"for", "boys","is" ,"boys hostel","how" ,"find","is" ],
+      "bot_response": "take a left turn from library to go to boys hostel. click on the arrow below for the map",
+      "required_words": ["boys","hostel"]
+    },
+    {
+      "response_type": "girls hostel",
+      "user_input": ["where", "to", "find", "girls", "girls hostel","where","is","building"],
+      "bot_response": "walk straight from main gate and take a right turn from MBA park.Click on the arrow below for map",
+      "required_words": ["girls","hostel"]
+    },
+    {
+      "response_type": "greeting",
+      "user_input": ["nice", "to", "meet", "you"],
+      "bot_response": "The pleasure is all mine!",
+      "required_words": ["nice", "meet", "you"]
+    },
+    {
+      "response_type": "administration",
+      "user_input": ["how", "to","find", "administrative", "block", "where","is"],
+      "bot_response": "walk straight from main road,then take a turn from library.click on the arrow below for direction map",
+      "required_words": ["administrative","block"]
+    },
+    {
+      "response_type": "computer",
+      "user_input": ["computer", "how","where","is", "to", "find", "dapartment","block"],
+      "bot_response": "walk straight from the main gate, just after the library you will find the Computer department. Click on the arrow below for map",
+      "required_words": ["computer","department"]
+    },
+    {
+      "response_type": "library",
+      "user_input": ["library","where","is", "how", "to", "find","building"],
+      "bot_response": "Walk straight from the main gate.Click on the arrow for direction map.",
+      "required_words": ["library"]
+    },
+    {
+        "response_type": "Shankuntalam",
+        "user_input": ["shankuntalam","where","is", "how", "to", "find","auditorium"],
+        "bot_response": "Turn left from library and then from boys hostel. Click on the arrrow below for the map",
+        "required_words": ["shakuntalam"]
+      },
+      {
+        "response_type": "Dispensary",
+        "user_input": ["dispensary","where","is", "how", "to", "find","health","center"],
+        "bot_response": "walk straight from main gate and turn left for dispensary. click on the arrow below for the map",
+        "required_words": ["dispensary"]
+      },
+      {
+        "response_type": "Electronics",
+        "user_input": ["electronics","where","is", "how", "to", "find","department"],
+        "bot_response": "Walk straight from main road,just after computer department.Click on arrow below for map",
+        "required_words": ["electronics","department"]
+      },
+      {
+        "response_type": "electrical",
+        "user_input": ["electrical","where","is", "how", "to", "find","building","department"],
+        "bot_response": "Walk straight from main road,just after computer department.Click on arrow below for map",
+        "required_words": ["electrical","department"]
+      },
+      {
+        "response_type": "civil",
+        "user_input": ["civil","where","is", "how", "to", "find","building","department"],
+        "bot_response": "Walk straight from Shakuntalam and take a right turn for civil department.Click on arrow below for map",
+        "required_words": ["civil","department"]
+      },
+      {
+        "response_type": "mechanical",
+        "user_input": ["mechanical","where","is", "how", "to", "find","building","department"],
+        "bot_response": "Walk straight from Shakuntalam and take a right turn for civil department.Click on arrow below for map",
+        "required_words": ["mechanical","department"]
+      },
+      {
+        "response_type": "Playground",
+        "user_input": ["playground","where","is", "how", "to", "find"],
+        "bot_response": "Walk straight from main gate and take a left turn for playground.Click on arrow below for map",
+        "required_words": ["playground"]
+      },
+      {
+        "response_type": "MBA park",
+        "user_input": ["MBA park","where","is", "how", "to", "find"],
+        "bot_response": "Walk straight from main gate. click on the arrow for map",
+        "required_words": ["MBA","park"]
+      },
+      {
+        "response_type": "canteen",
+        "user_input": ["canteen","where","is", "how", "to", "find"],
+        "bot_response": "Walk straight from main gate and take a turn from library. click on the arrow for map",
+        "required_words": ["canteen"]
+      },
+      {
+        "response_type": "post office",
+        "user_input": ["post office","where","is", "how", "to", "find"],
+        "bot_response": "After entering from main gate take a turn and walk straight for post office.click on the arrow for map",
+        "required_words": ["post","office"]
+      },
+      {
+        "response_type": "Science block",
+        "user_input": ["science","where","is", "how", "to", "find","block"],
+        "bot_response": "walk straight from canteen and take a right turn followed by a left for science block.click on the ",
+        "required_words": ["canteen"]
+      },
+      {
+        "response_type": "C.V. raman",
+        "user_input": ["C.V.","where","is", "how", "to", "find","raman"],
+        "bot_response": "walk straight from canteen and take a right turn followed by a left for science block.click on the ",
+        "required_words": ["C.V.","raman"]
+      },
+      {
+        "response_type": "VC",
+        "user_input": ["VC","where","is", "how", "to", "find","office"],
+        "bot_response": "walk straight from main gate, after the elctronics department you will find V.c. office. click on the arrow for map ",
+        "required_words": ["VC","office"]
+      },
+      {
+        "response_type": "vivekanand",
+        "user_input": ["vivekanand","where","is", "how", "to", "find","auditorium"],
+        "bot_response": "walk straight from main gate and in front of V.C. Office you will find vivekanand auditorium.click on the ",
+        "required_words": ["vivekanand","auditorium"]
+      }
+  ]
